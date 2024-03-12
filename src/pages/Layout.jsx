@@ -9,30 +9,22 @@ const Layout = () => {
   return (
     <div className="d-flex h-100">
       <CSidebar className="" >
-  <CSidebarBrand>Sidebar Brand</CSidebarBrand>
+  <CSidebarBrand className="fs-4 text fw-bold">میز کار</CSidebarBrand>
   <CSidebarNav>
-    <CNavTitle>Nav Title</CNavTitle>
-    <Link to={"/Blogs"}>
-    <CNavItem href="#">
-      <CIcon customClassName="nav-icon" icon={cilPuzzle} />
-      Nav item
+    <Link className="ps-5 pt-2 fs-6 text link-light link-underline link-underline-opacity-0" to={"/Blogs"}>
+    <CNavItem  >
+      <CIcon customClassName="nav-icon"  />
+      داشبود
     </CNavItem>
     </Link>
     <Link to={"/Home"}>
     <CNavItem href="#">
-      <CIcon customClassName="nav-icon" icon={cilPuzzle} />
+      <CIcon customClassName="nav-icon"  />
       With badge
       <CBadge color="primary ms-auto">NEW</CBadge>
     </CNavItem>
     </Link>
-    <CNavGroup toggler="Nav dropdown">
-      <CNavItem href="#">
-        <CIcon customClassName="nav-icon" icon={cilPuzzle} /> Nav dropdown item
-      </CNavItem>
-      <CNavItem href="#">
-        <CIcon customClassName="nav-icon" icon={cilPuzzle} /> Nav dropdown item
-      </CNavItem>
-    </CNavGroup>
+    
   </CSidebarNav>
   <CSidebarToggler />
 </CSidebar>
