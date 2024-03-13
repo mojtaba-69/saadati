@@ -32,7 +32,7 @@ function Login(){
                   </div>
                   <div class="row">
                     <div class="col-12">
-                      <button class="btn btn-primary px-4" type="button"><Link className="link-dark p-2 text-decoration-none" to={'/Home'}>ورود</Link></button>
+                      <button class="btn btn-primary px-4" type="button"><Link className="link-dark p-2 text-decoration-none" to={'/Dashboard'}>ورود</Link></button>
                     </div>
                     
                   </div>
@@ -42,7 +42,7 @@ function Login(){
                 <div class="card-body text-center">
                   <div className=""> 
                     <h2 className="mb-4">توجه</h2>
-                    <p className="text-end">برای ورود به قسمت مدیریت فقط کافیست نام کاربری و رمزعبور را وارد نمایید.</p>
+                    <p className="text-end">برای ورود به قسمت مدیریت فقط کافیست نام کاربری و رمزعبور خود را وارد نمایید.</p>
                   </div>
                 </div>
               </div>

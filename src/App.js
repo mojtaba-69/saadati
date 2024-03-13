@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Layout from "./pages/Layout";
 import Login from "./pages/Login"
 import Home from "./pages/Home";
-import Blogs from "./pages/Blogs";
+import Dashboard from "./pages/Dashboard";
 import Contact from "./pages/Contact";
 import NoPage from "./pages/NoPage";
 import '@coreui/coreui/dist/css/coreui.min.css'
@@ -14,8 +14,8 @@ export default function App() {
       <Routes>
         <Route index element={<Login />}></Route>
         <Route path="/" element={<Layout />}>
-          <Route index element={<Home />} />
-          <Route path="blogs" element={<Blogs />} />
+          <Route index path="Dashboard" element={<Dashboard />} />
+          <Route path="Home" element={<Home />} />
           <Route path="contact" element={<Contact />} />
           <Route path="*" element={<NoPage />} />
         </Route>
