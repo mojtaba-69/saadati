@@ -181,82 +181,87 @@ const Home = () => {
     setDetails(newDetails)
   }
   return (
-    <CSmartTable
-      activePage={2}
-      cleaner
-      clickableRows
-      columns={columns}
-      columnFilter
-      columnSorter
-      footer
-      items={usersData}
-      itemsPerPageSelect
-      itemsPerPage={5}
-      pagination
-      onFilteredItemsChange={(items) => {
-        console.log(items)
-      }}
-      onSelectedItemsChange={(items) => {
-        console.log(items)
-      }}
-      scopedColumns={{
-        avatar: (item) => (
-          <td>
-            <CAvatar src={`/images/avatars/${item.avatar}`} />
-          </td>
-        ),
-        status: (item) => (
-          <td>
-            <CBadge color={getBadge(item.status)}>{item.status}</CBadge>
-          </td>
-        ),
-        show_details: (item) => {
-          return (
-            <td className="py-2">
-              <CButton
-                color="primary"
-                variant="outline"
-                shape="square"
-                size="sm"
-                onClick={() => {
-                  toggleDetails(item.id)
-                }}
-              >
-                {details.includes(item.id) ? 'Hide' : 'Show'}
-              </CButton>
+    <div className='d-flex flex-column gap-5 h-100'>
+
+      
+      <CSmartTable
+        className='p-1'
+        activePage={2}
+        cleaner
+        clickableRows
+        columns={columns}
+        columnFilter
+        columnSorter
+        footer
+        items={usersData}
+        itemsPerPageSelect
+        itemsPerPage={5}
+        pagination
+        onFilteredItemsChange={(items) => {
+          console.log(items)
+        }}
+        onSelectedItemsChange={(items) => {
+          console.log(items)
+        }}
+        scopedColumns={{
+          avatar: (item) => (
+            <td>
+              <CAvatar src={`/images/avatars/${item.avatar}`} />
             </td>
-          )
-        },
-        details: (item) => {
-          return (
-            <CCollapse visible={details.includes(item.id)}>
-              <CCardBody className="p-3">
-                <h4>{item.username}</h4>
-                <p className="text-muted">User since: {item.registered}</p>
-                <CButton size="sm" color="info">
-                  User Settings
+          ),
+          status: (item) => (
+            <td>
+              <CBadge color={getBadge(item.status)}>{item.status}</CBadge>
+            </td>
+          ),
+          show_details: (item) => {
+            return (
+              <td className="py-2">
+                <CButton
+                  color="primary"
+                  variant="outline"
+                  shape="square"
+                  size="sm"
+                  onClick={() => {
+                    toggleDetails(item.id)
+                  }}
+                >
+                  {details.includes(item.id) ? 'Hide' : 'Show'}
                 </CButton>
-                <CButton size="sm" color="danger" className="ml-1">
-                  Delete
-                </CButton>
-              </CCardBody>
-            </CCollapse>
-          )
-        },
-      }}
-      selectable
-      sorterValue={{ column: 'status', state: 'asc' }}
-      tableFilter
-      tableProps={{
-        className: 'add-this-class',
-        responsive: true,
-        striped: true,
-        hover: true,
-      }}
-      tableBodyProps={{
-        className: 'align-middle'
-      }}
-    />
+              </td>
+            )
+          },
+          details: (item) => {
+            return (
+              <CCollapse visible={details.includes(item.id)}>
+                <CCardBody className="p-3">
+                  <h4>{item.username}</h4>
+                  <p className="text-muted">User since: {item.registered}</p>
+                  <CButton size="sm" color="info">
+                    User Settings
+                  </CButton>
+                  <CButton size="sm" color="danger" className="ml-1">
+                    Delete
+                  </CButton>
+                </CCardBody>
+              </CCollapse>
+            )
+          },
+        }}
+        selectable
+        sorterValue={{ column: 'status', state: 'asc' }}
+        tableFilter
+        tableProps={{
+          className: 'add-this-class',
+          responsive: true,
+          striped: true,
+          hover: true,
+        }}
+        tableBodyProps={{
+          className: 'align-middle'
+        }}
+      />
+    </div>
   );
 
 };
