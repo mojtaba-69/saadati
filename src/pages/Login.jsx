@@ -1,11 +1,28 @@
 import { useState } from "react";
-
+import {login} from '../redux/Store'
+import {useDispatch} from "react-redux"
 import { Link } from "react-router-dom";
+import {useForm} from 'react-hook-form'
+import * as yup from 'yup'
+import {yupResolver} from '@hookform/resolvers/yup'
+import Dashboard from "./Dashboard";
+
+
 
 function Login(){
-    const [username, setUsername ] = useState("");
-    const [password, setpassword ] = useState("")
+    const [newUsername, setNewUsername ] = useState("");
+    const dispatch = useDispatch()
+    const schema = yup.object().shape({
+      username : yup.string().min(4).max(15).required(),
+      password : yup.string().min(8).required(),
+    })
+    const {register, handleSubmit, formState:{errors}} = useForm({resolver : yupResolver(schema)})
 
+    const onFormSubmit = (data)=>{
+      console.log('خوش امدید')
+      console.log(data)
+      
+    }
     return (
     
     <>
@@ -17,25 +34,24 @@ function Login(){
               <div class="card col-md-7 p-4 mb-0">
                 <div class="card-body">
                   <h1>ورود</h1>
-                  <p class="text-medium-emphasis">به حساب خود وارد شوید</p>
+                  <p class="text-medium-emphasis">به حساب خود وارد شوید </p>
+                  <form onSubmit={handleSubmit(onFormSubmit)}>
                   <div class="input-group mb-3"><span class="input-group-text">
                       <svg class="icon">
-                        {/* <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-user"></use> */}
                       </svg></span>
-                    <input onInput={e=>setUsername(e.target.value)} class="form-control" type="text" placeholder="نام کاربری" />
+                    <input  onInput={e=>setNewUsername(e.target.value)} class="form-control" type="text" placeholder="نام کاربری"{...register("username")} />
                   </div>
                   <div class="input-group mb-4"><span class="input-group-text">
                       <svg class="icon">
-                        {/* <use xlink:href="node_modules/@coreui/icons/sprites/free.svg#cil-lock-locked"></use> */}
                       </svg></span>
-                    <input onInput={e=>setpassword(e.target.value)} class="form-control" type="password" placeholder="رمز ورود"/>
+                    <input  class="form-control" type="password" placeholder="رمز ورود" {...register("password")}/>
                   </div>
                   <div class="row">
                     <div class="col-12">
-                      <button class="btn btn-primary px-4" type="button"><Link className="link-dark p-2 text-decoration-none" to={'/Dashboard'}>ورود</Link></button>
+                      <button   type="submit" onClick={()=>dispatch(login({username : newUsername}))} class="btn btn-primary px-4" ><Link className="link-dark p-2 text-decoration-none" to={'Dashboard'}>ورود</Link> </button>
                     </div>
-                    
                   </div>
+                  </form>
                 </div>
               </div>
               <div class="card col-md-5 text-white bg-primary py-5">
@@ -43,6 +59,10 @@ function Login(){
                   <div className=""> 
                     <h2 className="mb-4">توجه</h2>
                     <p className="text-end">برای ورود به قسمت مدیریت فقط کافیست نام کاربری و رمزعبور خود را وارد نمایید.</p>
+                    {errors.username &&
+                    <p>{errors.username.message}</p>}
+                    {errors.password &&
+                    <p>{errors.password.message}</p>}
                   </div>
                 </div>
               </div>

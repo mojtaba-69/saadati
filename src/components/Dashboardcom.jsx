@@ -13,7 +13,8 @@ import {
   
   const Dashboardcom = () => {
     return (
-      <CRow className="p-3">
+      <div className="p-3 d-flex align-items-center h-75">
+        <CRow >
         <CCol sm={6}>
           <CWidgetStatsA
             className="mb-4"
@@ -405,6 +406,8 @@ import {
           />
         </CCol>
       </CRow>
+      </div>
+      
     );
   };
   

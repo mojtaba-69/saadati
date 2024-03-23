@@ -8,8 +8,11 @@ import Contact from "./pages/Contact";
 import NoPage from "./pages/NoPage";
 import '@coreui/coreui/dist/css/coreui.min.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
+import {Provider} from 'react-redux'
+import { store } from "./redux/Store";
 export default function App() {
   return (
+    <Provider store={store}>
     <BrowserRouter>
       <Routes>
         <Route index element={<Login />}></Route>
@@ -21,4 +24,5 @@ export default function App() {
         </Route>
       </Routes>
     </BrowserRouter>
+    </Provider>
   );}

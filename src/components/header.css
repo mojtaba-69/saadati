@@ -1,0 +1,19 @@
+#header{
+    height: 65px;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    gap: 10px;
+    background-color: #020047b9;
+    color: white;
+    
+}
+#menuic{
+    margin: 0 10px;
+}
+p{
+    flex: 1; 
+}
+#logout{
+    margin: 0 10px;
+}
