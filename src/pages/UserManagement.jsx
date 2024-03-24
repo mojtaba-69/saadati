@@ -4,7 +4,7 @@ const Home = () => {
   return(
 
 
-  <div >
+  <div className="w-100 ">
   <Header/>
   <UserManagement/>
   </div>

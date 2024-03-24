@@ -1,7 +1,7 @@
 import { CSmartTable } from '@coreui/react-pro'
 import { useState } from 'react';
 import { CAvatar,CBadge, CButton ,CCollapse,CCardBody } from '@coreui/react'
-
+import avatarr from "../assets/avatar/avatar.png"
 
 const UserManagement = () =>{
     const [details, setDetails] = useState([])
@@ -13,16 +13,16 @@ const UserManagement = () =>{
         sorter: false,
       },
       {
-        key: 'name',
+        key: 'نام',
         _style: { width: '20%' },
       },
-      'registered',
+      'فعالسازی',
       {
-        key: 'role',
+        key: 'نقش',
         _style: { width: '20%' }
       },
       {
-        key: 'status',
+        key: 'وضعیت',
         _style: { width: '20%' }
       },
       {
@@ -36,137 +36,137 @@ const UserManagement = () =>{
     const usersData = [
       {
         id: 1,
-        name: 'Samppa Nori',
-        avatar: '1.jpg',
-        registered: '2022/01/01',
-        role: 'Member',
-        status: 'Active',
+        نام: 'محمد عباسی',
+        avatar: avatarr,
+        فعالسازی: '2022/01/01',
+        نقش: 'اعضا',
+        وضعیت: 'فعال',
       },
       {
         id: 2,
-        name: 'Estavan Lykos',
+        نام: 'فرشاد حسن زاده',
         avatar: '2.jpg',
-        registered: '2022/02/07',
-        role: 'Staff',
-        status: 'Banned',
+        فعالسازی: '2022/02/07',
+        نقش: 'کارکنان',
+        وضعیت: 'بسته شده',
       },
       {
         id: 3,
-        name: 'Chetan Mohamed',
+        نام: 'حسین رادی',
         avatar: '3.jpg',
-        registered: '2022/02/07',
-        role: 'Admin',
-        status: 'Inactive',
+        فعالسازی: '2022/02/07',
+        نقش: 'ادمین',
+        وضعیت: 'غیر فعال',
         _selected: true,
       },
       {
         id: 4,
-        name: 'Derick Maximinus',
-        avatar: '4.jpg',
-        registered: '2022/03/19',
-        role: 'Member',
-        status: 'Pending',
+        نام: 'شقایق قانع',
+        avatar: 'avatarr',
+        فعالسازی: '2022/03/19',
+        نقش: 'اعضا',
+        وضعیت: 'در انتظار',
       },
       {
         id: 5,
-        name: 'Friderik Dávid',
+        نام: 'امیر دانشور',
         avatar: '5.jpg',
-        registered: '2022/01/21',
-        role: 'Staff',
-        status: 'Active'
+        فعالسازی: '2022/01/21',
+        نقش: 'کارکنان',
+        وضعیت: 'فعال'
       },
       {
         id: 6,
-        name: 'Yiorgos Avraamu',
+        نام: 'اشکان دانشمند',
         avatar: '6.jpg',
-        registered: '2022/01/01',
-        role: 'Member',
-        status: 'Active'
+        فعالسازی: '2022/01/01',
+        نقش: 'اعضا',
+        وضعیت: 'فعال'
       },
       {
         id: 7,
-        name: 'Avram Tarasios',
+        نام: 'عارف دانشمند',
         avatar: '7.jpg',
-        registered: '2022/02/07',
-        role: 'Staff',
-        status: 'Banned',
+        فعالسازی: '2022/02/07',
+        نقش: 'کارکنان',
+        وضعیت: 'بسته شده',
         _selected: true,
       },
       {
         id: 8,
-        name: 'Quintin Ed',
+        نام: 'سعیده نوری',
         avatar: '8.jpg',
-        registered: '2022/02/07',
-        role: 'Admin',
-        status: 'Inactive'
+        فعالسازی: '2022/02/07',
+        نقش: 'ادمین',
+        وضعیت: 'غیر فعال'
       },
       {
         id: 9,
-        name: 'Enéas Kwadwo',
+        نام: 'سامان علمی',
         avatar: '9.jpg',
-        registered: '2022/03/19',
-        role: 'Member',
-        status: 'Pending'
+        فعالسازی: '2022/03/19',
+        نقش: 'اعضا',
+        وضعیت: 'در انتظار'
       },
       {
         id: 10,
-        name: 'Agapetus Tadeáš',
+        نام: ' فوواد شنوایی',
         avatar: '10.jpg',
-        registered: '2022/01/21',
-        role: 'Staff',
-        status: 'Active'
+        فعالسازی: '2022/01/21',
+        نقش: 'کارکنان',
+        وضعیت: 'فعال'
       },
       {
         id: 11,
-        name: 'Carwyn Fachtna',
+        نام: 'علی دانشور',
         avatar: '11.jpg',
-        registered: '2022/01/01',
-        role: 'Member',
-        status: 'Active'
+        فعالسازی: '2022/01/01',
+        نقش: 'اعضا',
+        وضعیت: 'فعال'
       },
       {
         id: 12,
-        name: 'Nehemiah Tatius',
+        نام: 'رضا صدقی',
         avatar: '12.jpg',
-        registered: '2022/02/07',
-        role: 'Staff',
-        status: 'Banned',
+        فعالسازی: '2022/02/07',
+        نقش: 'کارکنان',
+        وضعیت: 'بسته شده',
         _selected: true,
       },
       {
         id: 13,
-        name: 'Ebbe Gemariah',
+        نام: 'وحید احمدیان',
         avatar: '13.jpg',
-        registered: '2022/02/07',
-        role: 'Admin',
-        status: 'Inactive'
+        فعالسازی: '2022/02/07',
+        نقش: 'اعضا',
+        وضعیت: 'غیر فعال'
       },
       {
         id: 14,
-        name: 'Eustorgios Amulius',
+        نام: 'محمد ملایی',
         avatar: '14.jpg',
-        registered: '2022/03/19',
-        role: 'Member',
-        status: 'Pending',
+        فعالسازی: '2022/03/19',
+        نقش: 'اعضا',
+        وضعیت: 'در انتظار',
       },
       {
         id: 15,
-        name: 'Leopold Gáspár',
+        نام: 'سجاد عباسی',
         avatar: '15.jpg',
-        registered: '2022/01/21',
-        role: 'Staff',
-        status: 'Active'
+        فعالسازی: '2022/01/21',
+        نقش: 'کارکنان',
+        وضعیت: 'فعال'
       },
     ]
     const getBadge = (status) => {
       switch (status) {
-        case 'Active':
+        case 'فعال':
           return 'success'
-        case 'Inactive':
+        case 'غیر فعال':
           return 'secondary'
-        case 'Pending':
+        case 'در انتظار':
           return 'warning'
-        case 'Banned':
+        case 'بسته شده':
           return 'danger'
         default:
           return 'primary'
@@ -183,7 +183,7 @@ const UserManagement = () =>{
       setDetails(newDetails)
     }
     return (
-      <div className='d-flex flex-column gap-5 h-100'>
+      <div className='d-flex flex-column p-1'>
   
         
         <CSmartTable
@@ -208,7 +208,7 @@ const UserManagement = () =>{
           scopedColumns={{
             avatar: (item) => (
               <td>
-                <CAvatar src={`/images/avatars/${item.avatar}`} />
+                <CAvatar src={avatarr} />
               </td>
             ),
             status: (item) => (
@@ -238,12 +238,12 @@ const UserManagement = () =>{
                 <CCollapse visible={details.includes(item.id)}>
                   <CCardBody className="p-3">
                     <h4>{item.username}</h4>
-                    <p className="text-muted">User since: {item.registered}</p>
+                    <p className="text-muted">تاریخ ایجاد حساب : {item.registered}</p>
                     <CButton size="sm" color="info">
-                      User Settings
+                      تنظیمات کاربر
                     </CButton>
                     <CButton size="sm" color="danger" className="ml-1">
-                      Delete
+                      حذف
                     </CButton>
                   </CCardBody>
                 </CCollapse>
