@@ -1,3 +1,9 @@
+
 #root{
     height: 100vh;
+}
+
+#alluser{
+    height: 89vh;
+    overflow-x: hidden;
 }

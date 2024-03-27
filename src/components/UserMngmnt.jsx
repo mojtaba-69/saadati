@@ -2,6 +2,7 @@ import { CSmartTable } from '@coreui/react-pro'
 import { useState } from 'react';
 import { CAvatar,CBadge, CButton ,CCollapse,CCardBody } from '@coreui/react'
 import avatarr from "../assets/avatar/avatar.png"
+import usersData from './UserData';
 
 const UserManagement = () =>{
     const [details, setDetails] = useState([])
@@ -33,131 +34,7 @@ const UserManagement = () =>{
         sorter: false,
       },
     ]
-    const usersData = [
-      {
-        id: 1,
-        نام: 'محمد عباسی',
-        avatar: avatarr,
-        فعالسازی: '2022/01/01',
-        نقش: 'اعضا',
-        وضعیت: 'فعال',
-      },
-      {
-        id: 2,
-        نام: 'فرشاد حسن زاده',
-        avatar: '2.jpg',
-        فعالسازی: '2022/02/07',
-        نقش: 'کارکنان',
-        وضعیت: 'بسته شده',
-      },
-      {
-        id: 3,
-        نام: 'حسین رادی',
-        avatar: '3.jpg',
-        فعالسازی: '2022/02/07',
-        نقش: 'ادمین',
-        وضعیت: 'غیر فعال',
-        _selected: true,
-      },
-      {
-        id: 4,
-        نام: 'شقایق قانع',
-        avatar: 'avatarr',
-        فعالسازی: '2022/03/19',
-        نقش: 'اعضا',
-        وضعیت: 'در انتظار',
-      },
-      {
-        id: 5,
-        نام: 'امیر دانشور',
-        avatar: '5.jpg',
-        فعالسازی: '2022/01/21',
-        نقش: 'کارکنان',
-        وضعیت: 'فعال'
-      },
-      {
-        id: 6,
-        نام: 'اشکان دانشمند',
-        avatar: '6.jpg',
-        فعالسازی: '2022/01/01',
-        نقش: 'اعضا',
-        وضعیت: 'فعال'
-      },
-      {
-        id: 7,
-        نام: 'عارف دانشمند',
-        avatar: '7.jpg',
-        فعالسازی: '2022/02/07',
-        نقش: 'کارکنان',
-        وضعیت: 'بسته شده',
-        _selected: true,
-      },
-      {
-        id: 8,
-        نام: 'سعیده نوری',
-        avatar: '8.jpg',
-        فعالسازی: '2022/02/07',
-        نقش: 'ادمین',
-        وضعیت: 'غیر فعال'
-      },
-      {
-        id: 9,
-        نام: 'سامان علمی',
-        avatar: '9.jpg',
-        فعالسازی: '2022/03/19',
-        نقش: 'اعضا',
-        وضعیت: 'در انتظار'
-      },
-      {
-        id: 10,
-        نام: ' فوواد شنوایی',
-        avatar: '10.jpg',
-        فعالسازی: '2022/01/21',
-        نقش: 'کارکنان',
-        وضعیت: 'فعال'
-      },
-      {
-        id: 11,
-        نام: 'علی دانشور',
-        avatar: '11.jpg',
-        فعالسازی: '2022/01/01',
-        نقش: 'اعضا',
-        وضعیت: 'فعال'
-      },
-      {
-        id: 12,
-        نام: 'رضا صدقی',
-        avatar: '12.jpg',
-        فعالسازی: '2022/02/07',
-        نقش: 'کارکنان',
-        وضعیت: 'بسته شده',
-        _selected: true,
-      },
-      {
-        id: 13,
-        نام: 'وحید احمدیان',
-        avatar: '13.jpg',
-        فعالسازی: '2022/02/07',
-        نقش: 'اعضا',
-        وضعیت: 'غیر فعال'
-      },
-      {
-        id: 14,
-        نام: 'محمد ملایی',
-        avatar: '14.jpg',
-        فعالسازی: '2022/03/19',
-        نقش: 'اعضا',
-        وضعیت: 'در انتظار',
-      },
-      {
-        id: 15,
-        نام: 'سجاد عباسی',
-        avatar: '15.jpg',
-        فعالسازی: '2022/01/21',
-        نقش: 'کارکنان',
-        وضعیت: 'فعال'
-      },
-    ]
+   
     const getBadge = (status) => {
       switch (status) {
         case 'فعال':
@@ -183,7 +60,8 @@ const UserManagement = () =>{
       setDetails(newDetails)
     }
     return (
-      <div className='d-flex flex-column p-1'>
+      <div className='p-2'>
+        <div className='d-flex flex-column p-1'>
   
         
         <CSmartTable
@@ -264,6 +142,8 @@ const UserManagement = () =>{
           }}
         />
       </div>
+      </div>
+      
     );
 }
 

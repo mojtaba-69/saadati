@@ -13,7 +13,22 @@ const userSlice = createSlice({
     }
 })
 
-export const {login,logout} = userSlice.actions
-export const store = configureStore({reducer :{
-    user : userSlice.reducer
-}})
+
+const activeSlice =createSlice({
+    name: "activeSideBar",
+    initialState: {active :true},
+    reducers : {
+        menuActive : (state,action) => {
+            state.active = true
+        },
+        menuDeActive : (state)=>{
+                state.active = false
+            }
+        }
+    })
+    export const {menuActive,menuDeActive} = activeSlice.actions
+    export const {login,logout} = userSlice.actions
+    export const store = configureStore({reducer :{
+        user : userSlice.reducer,
+        activeSideBar: activeSlice.reducer
+    }})
