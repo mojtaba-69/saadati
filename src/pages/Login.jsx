@@ -1,3 +1,4 @@
+//در صفحه ما اطلاعات را از مدیر سایت میگیریم و اون ها رو بررسی و ولید میکنم و در این صحه از redux , yup ,hook form  استفاده کردم
 import { useState } from "react";
 import {login} from '../redux/Store'
 import {useDispatch} from "react-redux"
