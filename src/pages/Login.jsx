@@ -24,7 +24,7 @@ function Login(){
       
     }
     return (
-    
+    //کامبوننت لاگین رو از core ui ایمبورت کردم و مقداری تغییرش دادم
     <>
       <div dir="rtl" class="bg-light min-vh-100 d-flex flex-row align-items-center">
       <div class="container">
@@ -54,6 +54,8 @@ function Login(){
                   </form>
                 </div>
               </div>
+                //اینجا کد های مربوط به باکس کنار فرم لاگین میباشد
+                //درون این باکس مسیج های مربوط به فیلد های فرم لاگین قرار دارد
               <div class="card col-md-5 text-white bg-primary py-5">
                 <div class="card-body text-center">
                   <div className=""> 
