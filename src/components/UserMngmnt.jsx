@@ -6,6 +6,7 @@ import usersData from './UserData';
 
 const UserManagement = () =>{
     const [details, setDetails] = useState([])
+    //اطلاعات مربو به هر ستون
     const columns = [
       {
         key: 'avatar',
@@ -34,7 +35,11 @@ const UserManagement = () =>{
         sorter: false,
       },
     ]
-   
+   //وضعیت کاربران 
+    //فعال=>سبز
+    //غیرفعال=>قرمز
+    //در انتظار=>زرد
+    //بسته شده=>قرمز
     const getBadge = (status) => {
       switch (status) {
         case 'فعال':
