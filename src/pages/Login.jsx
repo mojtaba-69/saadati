@@ -7,7 +7,7 @@ import * as yup from 'yup'
 import {yupResolver} from '@hookform/resolvers/yup'
 import Dashboard from "./Dashboard";
 
-
+//با استفاده از yup فیلد ها رو valid کردم
 
 function Login(){
     const [newUsername, setNewUsername ] = useState("");
