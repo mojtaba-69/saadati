@@ -8,7 +8,7 @@ import {
 } from "@coreui/react";
 import CIcon from "@coreui/icons-react";
 import {  useSelector } from "react-redux";
-
+//ساید بار
 
 const Layout = () => {
   const selector = useSelector((state)=> state.activeSideBar.active)
