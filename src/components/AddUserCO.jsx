@@ -1,6 +1,8 @@
+//کد های مربوط به کامبوننت اد یوزر در اینجا قرار دارد
+// از فرم های ویلیدیشن کور یو ای استفاده کردم 
 import {CInputGroup,CInputGroupText,CFormInput,CCol,CFormFeedback,CFormCheck,CFormSelect,CButton,CFormLabel,CForm} from '@coreui/react'
 import { useState } from 'react'
-
+//در اینجا مقادیر  فرم ولید میشود ک اگر اشتباه بقود به رنگ سبز در می ایند و اگر اشتباه بودند به رنگ قرمز در خواهند بود
 const AddUserCO = () => {
   const [validated, setValidated] = useState(false)
 const handleSubmit = (event) => {
