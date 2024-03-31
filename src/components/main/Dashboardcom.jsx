@@ -10,8 +10,9 @@ import {
   import CIcon from "@coreui/icons-react";
   import { cilArrowTop, cilOptions } from "@coreui/icons";
   import { CChartBar, CChartLine } from "@coreui/react-chartjs";
-  
+  import usersData from "../../data/UserData";
   const Dashboardcom = () => {
+    const UserData = usersData
     return (
       <div className="p-3 d-flex align-items-center h-75">
         <CRow >
@@ -21,7 +22,7 @@ import {
             color="primary"
             value={
               <>
-                125 نفر عضو{" "}
+                 {usersData.length}نفر عضو{" "}
                 <span className="fs-6 fw-normal">
                   (%25+ <CIcon icon={cilArrowTop} />)
                 </span>

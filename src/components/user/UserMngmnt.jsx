@@ -1,8 +1,8 @@
 import { CSmartTable } from '@coreui/react-pro'
 import { useState } from 'react';
 import { CAvatar,CBadge, CButton ,CCollapse,CCardBody } from '@coreui/react'
-import avatarr from "../assets/avatar/avatar.png"
-import usersData from './UserData';
+import avatarr from "../../assets/avatar/avatar.png"
+import usersData from '../../data/UserData';
 
 const UserManagement = () =>{
     const [details, setDetails] = useState([])

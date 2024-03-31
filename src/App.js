@@ -6,6 +6,7 @@ import UserManagement from "./pages/UserManagement";
 import Dashboard from "./pages/Dashboard";
 import AddUser from "./pages/AddUser";
 import AllUser from "./pages/AllUser";
+import AllAdvertise from "./pages/AllAdvertise";
 import NoPage from "./pages/NoPage";
 import '@coreui/coreui/dist/css/coreui.min.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
@@ -22,6 +23,8 @@ export default function App() {
           <Route path="UserManagement" element={<UserManagement />} />
           <Route path="AddUser" element={<AddUser />} />
           <Route path="AllUser" element={<AllUser />} />
+          <Route path="AllAdvertise" element={<AllAdvertise />} />
+
           <Route path="*" element={<NoPage />} />
         </Route>
       </Routes>

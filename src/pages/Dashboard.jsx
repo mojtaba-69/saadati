@@ -1,5 +1,5 @@
-import Header from "../components/Header";
-import Dashboardcom from "../components/Dashboardcom";
+import Header from "../components/main/Header";
+import Dashboardcom from "../components/main/Dashboardcom";
 const Dashboard = () => {
   return (
     <div className="">

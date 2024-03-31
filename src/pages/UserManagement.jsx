@@ -1,5 +1,5 @@
-import UserManagement from "../components/UserMngmnt";
-import Header from "../components/Header"
+import UserManagement from "../components/user/UserMngmnt";
+import Header from "../components/main/Header"
 const Home = () => {
   return(
 

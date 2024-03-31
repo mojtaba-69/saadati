@@ -1,5 +1,5 @@
 import { CTablerow,CTable } from "@coreui/react"
-import usersData from "./UserData"
+import usersData from "../../data/UserData"
 const AllUserCO = ()=>{
     const columns = [
         {

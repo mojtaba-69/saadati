@@ -1,5 +1,5 @@
-import AllUserCO from "../components/AllUserCO"
-import Header from "../components/Header"
+import AllUserCO from "../components/user/AllUserCO"
+import Header from "../components/main/Header"
 
 const AllUser = ()=>{
 

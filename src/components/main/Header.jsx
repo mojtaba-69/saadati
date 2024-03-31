@@ -1,10 +1,10 @@
 import { CAvatar } from "@coreui/react";
 import CIcon from "@coreui/icons-react";
 import { cilHamburgerMenu, cilAccountLogout } from "@coreui/icons";
-import { logout } from "../redux/Store";
+import { logout } from "../../redux/Store";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { menuActive,menuDeActive } from "../redux/Store";
+import { menuActive,menuDeActive } from "../../redux/Store";
 import { UseDispatch } from "react-redux";
 import "./header.css";
 import { useState } from "react";

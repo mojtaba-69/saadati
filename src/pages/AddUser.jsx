@@ -1,5 +1,5 @@
-import Header from "../components/Header";
-import AddUserCO from '../components/AddUserCO'
+import Header from "../components/main/Header";
+import AddUserCO from '../components/user/AddUserCO'
 const AddUser = () => {
     return (
       <div className="w-100">
