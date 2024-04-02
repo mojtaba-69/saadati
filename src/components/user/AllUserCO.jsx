@@ -1,6 +1,8 @@
+//در اینجا کد های مربوط به کامبونت  نمایش تمام کاربران قرار دارد
 import { CTablerow,CTable } from "@coreui/react"
 import usersData from "../../data/UserData"
 const AllUserCO = ()=>{
+//در اینجا مقادیری ک قرار است در ها ستون نمایش داده شود را ست کردم
     const columns = [
         {
           key: 'id',
@@ -50,7 +52,7 @@ const AllUserCO = ()=>{
     const items = usersData
       return (
         <div className="p-1">
-
+//در اینجا کامبوننت  تیبل کوریوای ساده استفاده کردم ک مقادیر ستون از بالا و دیتا از یوزر دیتا دریافت میشود
             <CTable  hover striped  columns={columns} items={items} />
         </div>
       )

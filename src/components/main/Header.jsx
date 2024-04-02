@@ -1,3 +1,5 @@
+//کد های مربوط به کامبوننت هدر
+//از ریداکس استفاده شده است
 import { CAvatar } from "@coreui/react";
 import CIcon from "@coreui/icons-react";
 import { cilHamburgerMenu, cilAccountLogout } from "@coreui/icons";
@@ -8,6 +10,8 @@ import { menuActive,menuDeActive } from "../../redux/Store";
 import { UseDispatch } from "react-redux";
 import "./header.css";
 import { useState } from "react";
+//وقتی روی ایکون همبرگرمنو کلیلک میشود میتوان ساید بار را با ان نمایش و بنهان کرد
+//وقتی روی ایکون خروج کلیک میشود لاگ اون انجام میشود
 const Header = () => {
   const dispath = useDispatch();
   const selector = useSelector((state) => state.user.username);
