@@ -68,6 +68,7 @@ const UserManagement = () =>{
   
         
         <CSmartTable
+       
           activePage={2}
           cleaner
           clickableRows
@@ -118,7 +119,7 @@ const UserManagement = () =>{
                 <CCollapse visible={details.includes(item.id)}>
                   <CCardBody className="p-3">
                     <h4>{item.username}</h4>
-                    <p className="text-muted">تاریخ ایجاد حساب : {item.registered}</p>
+                    <p className="text-muted">تاریخ ایجاد حساب : {item.فعالسازی}</p>
                     <CButton size="sm" color="info">
                       تنظیمات کاربر
                     </CButton>
@@ -143,8 +144,6 @@ const UserManagement = () =>{
             className: 'align-middle'
           }}
         />
-      
-    
       
     );
 }

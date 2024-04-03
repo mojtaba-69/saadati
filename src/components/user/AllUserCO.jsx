@@ -8,7 +8,8 @@ const AllUserCO = ()=>{
           key: 'id',
           label: '#',
           _props: { scope: 'col' },
-        },{
+        },
+        {
             key: 'نام',
             _style: { width: '20%' },
           },
