@@ -1,14 +1,10 @@
-import Advertise from "../components/advertise/AdvertiseShow";
-import Header from "../components/main/Header";
-
 const AllAdvertise = ()=>{
-return(
-    <div className="w-100">
-
-        <Header/>
-        <Advertise/>
-        
-    </div>
-)
+    return(
+        const column
+        <>
+        <CTable columns={columns} items={items} />
+        </>
+    )
 }
-export default AllAdvertise;
+
+export default AllAdvertise

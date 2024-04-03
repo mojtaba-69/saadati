@@ -5,7 +5,8 @@
     width: 100%;
     gap: 10px;
     background-color: rgb(48, 60, 84);
-    color: white;
+    color: white; 
+    padding: 5px;
     
 }
 #menuic{

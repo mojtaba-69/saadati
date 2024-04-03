@@ -62,7 +62,7 @@ const Layout = () => {
               toggler={
                 <Link
                   className="ps-5 pt-2 fs-6 text link-light link-underline link-underline-opacity-0"
-                  to={"/AllAdvertise"}
+                  to={"/AdvertiseManagement"}
                 >
                   <CIcon customClassName="nav-icon" /> مدیریت اگهی ها
                 </Link>

@@ -65,12 +65,9 @@ const UserManagement = () =>{
       setDetails(newDetails)
     }
     return (
-      <div className='p-2'>
-        <div className='d-flex flex-column p-1'>
   
         
         <CSmartTable
-          className='p-1'
           activePage={2}
           cleaner
           clickableRows
@@ -111,7 +108,7 @@ const UserManagement = () =>{
                       toggleDetails(item.id)
                     }}
                   >
-                    {details.includes(item.id) ? 'Hide' : 'Show'}
+                    {details.includes(item.id) ? 'پنهان' : 'نمایش'}
                   </CButton>
                 </td>
               )
@@ -146,8 +143,8 @@ const UserManagement = () =>{
             className: 'align-middle'
           }}
         />
-      </div>
-      </div>
+      
+    
       
     );
 }

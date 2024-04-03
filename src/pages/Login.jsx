@@ -8,7 +8,7 @@ import * as yup from 'yup'
 import {yupResolver} from '@hookform/resolvers/yup'
 import Dashboard from "./Dashboard";
 
-//با استفاده از yup فیلد ها رو valid کردم
+// با استفاده از yup فیلد ها رو valid کردم
 
 function Login(){
     const [newUsername, setNewUsername ] = useState("");
@@ -25,7 +25,7 @@ function Login(){
       
     }
     return (
-    //کامبوننت لاگین رو از core ui ایمبورت کردم و مقداری تغییرش دادم
+    // کامبوننت لاگین رو از core ui ایمبورت کردم و مقداری تغییرش دادم
     <>
       <div dir="rtl" class="bg-light min-vh-100 d-flex flex-row align-items-center">
       <div class="container">
@@ -55,8 +55,8 @@ function Login(){
                   </form>
                 </div>
               </div>
-                //اینجا کد های مربوط به باکس کنار فرم لاگین میباشد
-                //درون این باکس مسیج های مربوط به فیلد های فرم لاگین قرار دارد
+                {/* //اینجا کد های مربوط به باکس کنار فرم لاگین میباشد */}
+                {/* //درون این باکس مسیج های مربوط به فیلد های فرم لاگین قرار دارد */}
               <div class="card col-md-5 text-white bg-primary py-5">
                 <div class="card-body text-center">
                   <div className=""> 

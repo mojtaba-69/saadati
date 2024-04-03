@@ -20,7 +20,7 @@ const Header = () => {
     dispath(!menuActive)
   };
   return (
-    <div className="" id="header">
+    <div className="rounded-4" id="header">
       <CIcon
         id="menuic"
         icon={cilHamburgerMenu}

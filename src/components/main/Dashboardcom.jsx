@@ -15,7 +15,7 @@ import {
   const Dashboardcom = () => {
     const UserData = usersData
     return (
-      <div className="p-3 d-flex align-items-center h-75">
+      <div className="p-3 d-flex align-items-center">
         <CRow >
         <CCol sm={6}>
           <CWidgetStatsA
