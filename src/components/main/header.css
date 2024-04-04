@@ -11,10 +11,12 @@
 }
 #menuic{
     margin: 0 10px;
+    cursor: pointer;
 }
 p{
     flex: 1; 
 }
 #logout{
     margin: 0 10px;
+    cursor: pointer;
 }

@@ -3,10 +3,10 @@
 import { CAvatar } from "@coreui/react";
 import CIcon from "@coreui/icons-react";
 import { cilHamburgerMenu, cilAccountLogout } from "@coreui/icons";
-import { logout } from "../../redux/Store";
+import { login, logout } from "../../redux/Store";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
-import { menuActive,menuDeActive } from "../../redux/Store";
+import { Link, useNavigate } from "react-router-dom";
+import { menuActive, menuDeActive } from "../../redux/Store";
 import { UseDispatch } from "react-redux";
 import "./header.css";
 import { useState } from "react";
@@ -16,12 +16,19 @@ const Header = () => {
   const dispath = useDispatch();
   const selector = useSelector((state) => state.user.username);
   const [activem, setActivem] = useState(true);
+  const navigate = useNavigate();
+  
+  const handleLogout = (e) => {
+    dispath(logout());
+    navigate("/");
+  };
   const a = () => {
-    dispath(!menuActive)
+    dispath(!menuActive);
   };
   return (
     <div className="rounded-4" id="header">
       <CIcon
+      
         id="menuic"
         icon={cilHamburgerMenu}
         size="xl"
@@ -36,9 +43,7 @@ const Header = () => {
 
       <CIcon
         id="logout"
-        onClick={(e) => {
-          dispath(logout());
-        }}
+        onClick={(e) => handleLogout(e)}
         icon={cilAccountLogout}
         size="xl"
       />

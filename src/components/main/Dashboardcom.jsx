@@ -12,8 +12,11 @@ import {
   import { cilArrowTop, cilOptions } from "@coreui/icons";
   import { CChartBar, CChartLine } from "@coreui/react-chartjs";
   import usersData from "../../data/UserData";
+  import AdvertiseData from "../../data/AdvertiseData";
   const Dashboardcom = () => {
-    const UserData = usersData
+    const UserData = usersData;
+    const AdvertiseDataa = AdvertiseData
+
     return (
       <div className="p-3 d-flex align-items-center">
         <CRow >
@@ -25,7 +28,6 @@ import {
               <>
                  {usersData.length}نفر عضو{" "}
                 <span className="fs-6 fw-normal">
-                  (%25+ <CIcon icon={cilArrowTop} />)
                 </span>
               </>
             }
@@ -67,7 +69,7 @@ import {
                       backgroundColor: "transparent",
                       borderColor: "rgba(255,255,255,.55)",
                       pointBackgroundColor: "#5856d6",
-                      data: [65, 59, 84, 84, 51, 55, 40],
+                      data: [10, 59, 84, 84, 51, 55, 40],
                     },
                   ],
                 }}
@@ -92,7 +94,7 @@ import {
                       },
                     },
                     y: {
-                      min: 30,
+                      min: -30,
                       max: 89,
                       display: false,
                       grid: {
@@ -125,9 +127,8 @@ import {
             color="info"
             value={
               <>
-                1123{" "}
+                {AdvertiseDataa.length}{" "}
                 <span className="fs-6 fw-normal">
-                  (700%+ <CIcon icon={cilArrowTop} />)
                 </span>
               </>
             }
@@ -169,7 +170,7 @@ import {
                       backgroundColor: "transparent",
                       borderColor: "rgba(255,255,255,.55)",
                       pointBackgroundColor: "#39f",
-                      data: [1, 18, 9, 17, 34, 22, 11],
+                      data: [1, 18, 9, 17,37, 22, 11],
                     },
                   ],
                 }}
