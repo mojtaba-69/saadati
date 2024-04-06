@@ -16,13 +16,13 @@ const userSlice = createSlice({
 
 const activeSlice =createSlice({
     name: "activeSideBar",
-    initialState: {active :true},
+    initialState: {active : 1},
     reducers : {
-        menuActive : (state,action) => {
-            state.active = true
+        menuActive : (state) => {
+            state.active = 1
         },
         menuDeActive : (state)=>{
-                state.active = false
+                state.active = 0
             }
         }
     })

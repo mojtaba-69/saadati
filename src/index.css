@@ -6,4 +6,8 @@
 #alluser{
     height: 89vh;
     overflow-x: hidden;
+} 
+
+#sidebarr{
+    background-color: black;
 }

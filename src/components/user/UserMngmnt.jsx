@@ -6,6 +6,9 @@ import usersData from "../../data/UserData";
 
 const status = {
   active: "فعال",
+  disable: "غیرفعال",
+  pending:"در انتظار",
+  closed:"بسته شده"
 };
 
 const UserManagement = () => {

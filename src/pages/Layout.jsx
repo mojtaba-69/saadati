@@ -4,7 +4,6 @@ import {
   CSidebarBrand,
   CSidebarNav,
   CNavItem,
-  CSidebarToggler,
   CNavGroup,
 } from "@coreui/react";
 import CIcon from "@coreui/icons-react";
@@ -14,15 +13,14 @@ import {  useSelector } from "react-redux";
 const Layout = () => {
   const selector = useSelector((state) => state.activeSideBar.active);
   return (
-    <>
-      {/* {selector &&  */}
-
-      <div className="d-flex h-100">
-        <CSidebar className="">
-          <CSidebarBrand className="fs-4 text fw-bold">میز کار</CSidebarBrand>
-          <CSidebarNav className="gap-3">
+    <div className="d-flex h-100 text-bg-dark" id="">
+      {selector && 
+      <div className="d-flex h-100 rounded-4 p-2" >
+        <CSidebar className="rounded-4 " >
+          <CSidebarBrand className="fs-4 rounded-4  text fw-bold ">میز کار</CSidebarBrand>
+          <CSidebarNav className="gap-3 ">
             <Link
-              className=" text-center pt-2 mt-3 fs-6 text link-light link-underline link-underline-opacity-0"
+              className=" text-center rounded-4z pt-2 mt-3 fs-6 text link-light link-underline link-underline-opacity-0"
               to={"/Dashboard"}
             >
               <CNavItem>
@@ -86,13 +84,12 @@ const Layout = () => {
               </CNavItem>
             </CNavGroup>
           </CSidebarNav>
-          <CSidebarToggler />
         </CSidebar>
 
-        <Outlet />
       </div>
-      {/* } */}
-    </>
+      } 
+      <Outlet />
+    </div>
   );
 };
 

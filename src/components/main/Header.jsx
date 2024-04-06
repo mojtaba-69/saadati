@@ -3,28 +3,25 @@
 import { CAvatar } from "@coreui/react";
 import CIcon from "@coreui/icons-react";
 import { cilHamburgerMenu, cilAccountLogout } from "@coreui/icons";
-import { login, logout } from "../../redux/Store";
+import {  logout , menuActive, menuDeActive } from "../../redux/Store";
 import { useDispatch, useSelector } from "react-redux";
-import { Link, useNavigate } from "react-router-dom";
-import { menuActive, menuDeActive } from "../../redux/Store";
-import { UseDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import "./header.css";
-import { useState } from "react";
 //وقتی روی ایکون همبرگرمنو کلیلک میشود میتوان ساید بار را با ان نمایش و بنهان کرد
 //وقتی روی ایکون خروج کلیک میشود لاگ اون انجام میشود
 const Header = () => {
   const dispath = useDispatch();
   const selector = useSelector((state) => state.user.username);
-  const [activem, setActivem] = useState(true);
   const navigate = useNavigate();
-  
+  const selectormenu = useSelector((state) => state.activeSideBar.active);
   const handleLogout = (e) => {
     dispath(logout());
     navigate("/");
   };
-  const a = () => {
-    dispath(!menuActive);
-  };
+  const handleMenu = ()=>{
+    dispath(selectormenu ? menuDeActive():menuActive());
+    
+  }
   return (
     <div className="rounded-4" id="header">
       <CIcon
@@ -32,7 +29,7 @@ const Header = () => {
         id="menuic"
         icon={cilHamburgerMenu}
         size="xl"
-        // onClick={}
+        onClick={(e)=>handleMenu()}
       />
       <CAvatar
         src={
