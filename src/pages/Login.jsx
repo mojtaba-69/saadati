@@ -2,20 +2,18 @@
 import { useState } from "react";
 import { login } from "../redux/Store";
 import { useDispatch } from "react-redux";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
-import Dashboard from "./Dashboard";
+
+
 // با استفاده از yup فیلد ها رو valid کردم
 
 function Login() {
   const [newUsername, setNewUsername] = useState("");
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const handlelogin = (e) => {
-    e.preventDefault();
-  };
   const schema = yup.object().shape({
     username: yup.string().min(4).max(15).required(),
     password: yup.string().min(8).required(),

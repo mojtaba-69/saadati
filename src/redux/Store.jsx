@@ -11,7 +11,7 @@ const userSlice = createSlice({
             state.username = ""
         }
     }
-})
+});
 
 
 const activeSlice =createSlice({
@@ -25,10 +25,36 @@ const activeSlice =createSlice({
                 state.active = 0
             }
         }
-    })
-    export const {menuActive,menuDeActive} = activeSlice.actions
-    export const {login,logout} = userSlice.actions
+    });
+
+const adduserSlice = createSlice({
+    name:"addUser",
+    initialState:{
+        name:"",
+        username:"",
+        email:"",
+        phone:"",
+    },
+    reducers:{
+        setName:(state,action)=>{
+            state.name = action.payload.name
+        },
+        setUserName: (state,action)=>{
+            state.username = action.payload.username
+        },
+        setEmail: (state,action)=>{
+            state.email = action.payload.email
+        },
+        setPhone: (state,action)=>{
+            state.phone = action.payload.phone
+        }
+    }
+});
+    export const {setEmail,setName,setPhone,setUserName} = adduserSlice.actions;
+    export const {menuActive,menuDeActive} = activeSlice.actions;
+    export const {login,logout} = userSlice.actions;
     export const store = configureStore({reducer :{
         user : userSlice.reducer,
-        activeSideBar: activeSlice.reducer
-    }})
+        activeSideBar: activeSlice.reducer,
+        addUser : adduserSlice.reducer
+    }});
