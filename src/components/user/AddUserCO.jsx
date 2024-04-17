@@ -17,15 +17,17 @@ import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useDispatch } from "react-redux";
+import { setEmail, setName, setPhone, setUserName } from "../../redux/Store";
+import {  useSelector } from "react-redux";
 //در اینجا مقادیر  فرم ولید میشود ک اگر اشتباه بقود به رنگ سبز در می ایند و اگر اشتباه بودند به رنگ قرمز در خواهند بود
 const AddUserCO = () => {
-  const [validated, setValidated] = useState(false);
-  const [name, setName] = useState("");
-  const [userName, setUserName] = useState(0);
-  const [email, setEmail] = useState(0);
-  const [phone, setPhone] = useState(0);
-
+  const [validated, setValidated] = useState(true);
+  const [name, setname] = useState("");
+  const [userName, setUsername] = useState("");
+  const [email, setEmaill] = useState("");
+  const [phone, setPhonee] = useState(0);
   const dispatch = useDispatch();
+  const s = useSelector((state)=> state.addUser)
   const schema = yup.object().shape({
     name: yup.string().required(),
     username: yup.string().min(6).max(12).required(),
@@ -37,18 +39,13 @@ const AddUserCO = () => {
     handleSubmit,
     formState: { errors },
   } = useForm({ resolver: yupResolver(schema) });
-  const onFormSubmit = (event) => {
+  const onFormSubmit = (data) => {
     dispatch(setName({ name: name }));
     dispatch(setEmail({ email: email }));
     dispatch(setUserName({ username: userName }));
     dispatch(setPhone({ phone: phone }));
-
-    const form = event.currentTarget;
-    if (form.checkValidity() === false) {
-      event.preventDefault();
-      event.stopPropagation();
-    }
-    setValidated(true);
+    console.log(s)
+    console.log(data);
   };
   return (
     <div className="p-3 d-flex flex-column align-items-center">
@@ -67,7 +64,7 @@ const AddUserCO = () => {
             label="نام و نام خانوادگی"
             required
             {...register("name")}
-            onInput={(e) => setName(e.target.value)}
+            onInput={(e) => setname(e.target.value)}
           />
         </CCol>
         <CCol md={4}>
@@ -91,7 +88,9 @@ const AddUserCO = () => {
               id="validationCustomUsername"
               required
               {...register("username")}
-              onInput={(e)=>{setUserName("@",e.target.value)}}
+              onInput={(e) => {
+                setUsername("@", e.target.value);
+              }}
             />
           </CInputGroup>
         </CCol>
@@ -104,7 +103,9 @@ const AddUserCO = () => {
             label="ایمل"
             required
             {...register("email")}
-            onInput={(e)=>{setEmail(e.target.value)}}
+            onInput={(e) => {
+              setEmaill(e.target.value);
+            }}
           />
         </CCol>
         <CCol md={3}>
@@ -128,8 +129,9 @@ const AddUserCO = () => {
             label="تلفن"
             required
             {...register("numberphone")}
-                        onInput={(e)=>{setPhone(e,target.value)}}
-
+            onInput={(e) => {
+              setPhonee(e.target.value);
+            }}
           />
         </CCol>
         <CCol xs={12}>
@@ -149,13 +151,19 @@ const AddUserCO = () => {
           </CButton>
         </CCol>
       </CForm>
-      {/* {errors.email||errors.username||errors.password||errors.name||errors.numberphone && <div>
-        <p>{errors.name.message}</p>
-        <p>{errors.username.message}</p>
-        <p>{errors.password.message}</p>
-        <p>{errors.email.message}</p>
-        <p> {errors.numberphone.message}</p>
-        </div>} */}
+      {errors.email ||
+        errors.username ||
+        errors.password ||
+        errors.name ||
+        (errors.numberphone && (
+          <div>
+            <p>{errors.name.message}</p>
+            <p>{errors.username.message}</p>
+            <p>{errors.password.message}</p>
+            <p>{errors.email.message}</p>
+            <p> {errors.numberphone.message}</p>
+          </div>
+        ))}
     </div>
   );
 };

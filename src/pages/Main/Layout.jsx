@@ -79,7 +79,7 @@ const Layout = () => {
                   className="text-center ps-5  fs-6 text link-light link-underline link-underline-opacity-0"
                   to={"/AllAdvertise"}
                 >
-                  نمایش همه کاربران
+                  نمایش همه آگهی ها
                 </Link>
               </CNavItem>
             </CNavGroup>

@@ -1,13 +1,13 @@
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Layout from "./pages/Layout";
-import Login from "./pages/Login"
-import UserManagement from "./pages/UserManagement";
-import Dashboard from "./pages/Dashboard";
-import AddUser from "./pages/AddUser";
-import AllUser from "./pages/AllUser";
-import AdvertiseManagement from "./pages/AdvertiseManagement"
-import AllAdvertise from "./pages/AllAdvertise";
+import Layout from "./pages/Main/Layout";
+import Login from "./pages/Main/Login"
+import UserManagement from "./pages/User/UserManagement";
+import Dashboard from "./pages/Main/Dashboard";
+import AddUser from "./pages/User/AddUser";
+import AllUser from "./pages/User/AllUser";
+import AdvertiseManagement from "./pages/Advertise/AdvertiseManagement"
+import AllAdvertise from "./pages/Advertise/AllAdvertise";
 import NoPage from "./pages/NoPage";
 import '@coreui/coreui/dist/css/coreui.min.css'
 import 'bootstrap/dist/css/bootstrap.min.css'

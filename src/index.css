@@ -11,3 +11,12 @@
 #sidebarr{
     background-color: black;
 }
+#dashbord--CBreadcrumbItem{
+    text-decoration: none;
+    color: black;
+    font-size: small;
+    cursor: pointer;
+}
+#dashbord--CBreadcrumbItem:hover{
+    opacity: 75%;
+}
