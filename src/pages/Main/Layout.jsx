@@ -69,9 +69,9 @@ const Layout = () => {
               <CNavItem className="pt-3 mb-3">
                 <Link
                   className="text-center ps-5  fs-6 text link-light link-underline link-underline-opacity-0"
-                  to={"/AddUser"}
+                  to={"/AddAdvertise"}
                 >
-                  افزودن کاربر
+                  افزودن آگهی
                 </Link>
               </CNavItem>
               <CNavItem className="pt-3 mb-3">
@@ -83,6 +83,15 @@ const Layout = () => {
                 </Link>
               </CNavItem>
             </CNavGroup>
+            <Link
+              className=" text-center rounded-4z pt-2 mt-3 fs-6 text link-light link-underline link-underline-opacity-0"
+              to={"/AdvertiseCategory"}
+            >
+              <CNavItem>
+                <CIcon customClassName="nav-icon" />
+                مدیریت دسته آگهی
+              </CNavItem>
+            </Link>
           </CSidebarNav>
         </CSidebar>
 

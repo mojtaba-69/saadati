@@ -20,3 +20,6 @@
 #dashbord--CBreadcrumbItem:hover{
     opacity: 75%;
 }
+#bg{    background-color: rgb(48, 60, 84);
+    color: white;
+}

@@ -9,7 +9,7 @@ const AllAdvertise = ()=>{
 return(
     <div className="d-flex pt-2 flex-column  w-100 gap-3 p-3 text-bg-dark" >
     <Header/>
-    <div id="" className="px-4 p-2 rounded-4 text-bg-light" >
+    <div  className="px-4 p-2 rounded-4 text-bg-light" >
         <span
           id="dashbord--CBreadcrumbItem"
           onClick={(e) => navigate("/UserManagement")}

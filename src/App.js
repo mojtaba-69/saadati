@@ -1,4 +1,3 @@
-import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Layout from "./pages/Main/Layout";
 import Login from "./pages/Main/Login"
@@ -8,6 +7,8 @@ import AddUser from "./pages/User/AddUser";
 import AllUser from "./pages/User/AllUser";
 import AdvertiseManagement from "./pages/Advertise/AdvertiseManagement"
 import AllAdvertise from "./pages/Advertise/AllAdvertise";
+import AddAdvertise from "./pages/Advertise/AddAdvertise";
+import AdvertiseCategory from "./pages/Advertise/AdvertiseCategory"
 import NoPage from "./pages/NoPage";
 import '@coreui/coreui/dist/css/coreui.min.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
@@ -25,7 +26,9 @@ export default function App() {
           <Route path="AddUser" element={<AddUser />} />
           <Route path="AllUser" element={<AllUser />} />
           <Route path="AdvertiseManagement" element={<AdvertiseManagement />} />
+          <Route path="AddAdvertise" element={<AddAdvertise />} />
           <Route path="AllAdvertise" element={<AllAdvertise />} />
+          <Route path="AdvertiseCategory" element={<AdvertiseCategory />} />
 
           <Route path="*" element={<NoPage />} />
         </Route>
