@@ -73,7 +73,7 @@ const UserManagement = () => {
   };
   return (
     <CSmartTable
-      activePage={2}
+      activePage={1}
       cleaner
       clickableRows
       columns={columns}

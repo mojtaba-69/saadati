@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
-
+import a from '../../assets/pic/teahub.io-blur-wallpaper-80602.jpg' 
 
 // با استفاده از yup فیلد ها رو valid کردم
 
@@ -30,13 +30,15 @@ function Login() {
     navigate("/Dashboard");
     console.log(data);
   };
+ 
   return (
     // کامبوننت لاگین رو از core ui ایمبورت کردم و مقداری تغییرش دادم
-    <>
-      <div
-        dir="rtl"
-        class="bg-dark min-vh-100 d-flex flex-row align-items-center"
+    <><img src={a} id="login--back"/><div
+      dir="rtl"
+      class="bg-dark min-vh-100  d-flex flex-row align-items-center"
+      id="login--in"
       >
+        
         <div class="container">
           <div class="row justify-content-center">
             <div class="col-lg-8">

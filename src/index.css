@@ -23,3 +23,7 @@
 #bg{    background-color: rgb(48, 60, 84);
     color: white;
 }
+#login--back{
+    position: fixed;
+    width: 100%;
+}
