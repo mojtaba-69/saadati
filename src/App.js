@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Layout from "./pages/Main/Layout";
 import Login from "./pages/Main/Login"
+import Register from "./pages/Main/Register"
 import UserManagement from "./pages/User/UserManagement";
 import Dashboard from "./pages/Main/Dashboard";
 import AddUser from "./pages/User/AddUser";
@@ -20,6 +21,8 @@ export default function App() {
     <BrowserRouter>
       <Routes>
         <Route index element={<Login />}></Route>
+        <Route path="/Register" element={<Register />}></Route>
+
         <Route path="/" element={<Layout />}>
           <Route index path="Dashboard" element={<Dashboard />} />
           <Route path="UserManagement" element={<UserManagement />} />
