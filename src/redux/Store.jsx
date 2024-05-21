@@ -2,10 +2,11 @@ import{configureStore, createSlice} from '@reduxjs/toolkit'
 
 const userSlice = createSlice({
     name : "user",
-    initialState : {username : ""},
+    initialState : {username : localStorage.username},
     reducers : {
         login : (state,action) => {
-            state.username = action.payload.username
+            state.username = action.payload.username 
+            localStorage.setItem('username',action.payload.username) 
         } ,
         logout : (state)=>{
             state.username = ""
@@ -16,13 +17,13 @@ const userSlice = createSlice({
 
 const activeSlice =createSlice({
     name: "activeSideBar",
-    initialState: {active : 1},
+    initialState: {active : true},
     reducers : {
         menuActive : (state) => {
-            state.active = 1
+            state.active = true
         },
         menuDeActive : (state)=>{
-                state.active = 0
+                state.active = false
             }
         }
     });
