@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { login } from "../../redux/Store";
 import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -30,6 +30,9 @@ function Login() {
     navigate("/Dashboard");
     console.log(data);
   };
+  const handleRegister = ()=>{
+    navigate("Register")
+  }
  
   return (
     // کامبوننت لاگین رو از core ui ایمبورت کردم و مقداری تغییرش دادم
@@ -74,6 +77,7 @@ function Login() {
                             ورود
                           </button>
                         </div>
+                        <span className="" onClick={()=>handleRegister()}>ثبت نام نکرده اید؟</span>
                       </div>
                     </form>
                   </div>
