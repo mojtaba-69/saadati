@@ -1,26 +1,18 @@
 import { useState } from "react";
 import { CSmartTable } from "@coreui/react-pro";
 import { CBadge, CButton, CCollapse, CCardBody } from "@coreui/react";
-import { CAvatar } from '@coreui/react'
 
 const AdvertiseCategoryCO = () => {
     const [details, setDetails] = useState([])
     const columns = [
+   
       {
-        key: 'avatar',
-        label: '',
-        filter: false,
-        sorter: false,
-      },
-      {
-        key: 'name',
+        key: 'عنوان_اگهی',
         _style: { width: '20%' },
       },
-      'registered',
-      { 
-        key: 'role',
-        _style: { width: '20%' }
-      },
+      {key:'تاریخ_انتشار',
+      _style: { width:'20%'}
+    },
       { 
         key: 'status',
         _style: { width: '20%' }
@@ -36,125 +28,111 @@ const AdvertiseCategoryCO = () => {
     const usersData = [
       {
         id: 1,
-        name: 'Samppa Nori',
+        عنوان_اگهی: 'Samppa Nori',
         avatar: '1.jpg',
-        registered: '2022/01/01',
-        role: 'Member',
+        تاریخ_انتشار: '2022/01/01',
+     
         status: 'Active',
       },
       {
         id: 2,
-        name: 'Estavan Lykos',
+        عنوان_اگهی: 'Estavan Lykos',
         avatar: '2.jpg',
-        registered: '2022/02/07',
-        role: 'Staff',
+        تاریخ_انتشار: '2022/02/07',
         status: 'Banned',
       },
       {
         id: 3,
-        name: 'Chetan Mohamed',
+        عنوان_اگهی: 'Chetan Mohamed',
         avatar: '3.jpg',
-        registered: '2022/02/07',
-        role: 'Admin',
+        تاریخ_انتشار: '2022/02/07',
         status: 'Inactive',
         _selected: true,
       },
       {
         id: 4,
-        name: 'Derick Maximinus',
+        عنوان_اگهی: 'Derick Maximinus',
         avatar: '4.jpg',
-        registered: '2022/03/19',
-        role: 'Member',
+        تاریخ_انتشار: '2022/03/19',
         status: 'Pending',
       },
       {
         id: 5,
-        name: 'Friderik Dávid',
+        عنوان_اگهی: 'Friderik Dávid',
         avatar: '5.jpg',
-        registered: '2022/01/21',
-        role: 'Staff',
+        تاریخ_انتشار: '2022/01/21',
         status: 'Active'
       },
       { 
         id: 6,
-        name: 'Yiorgos Avraamu',
+        عنوان_اگهی: 'Yiorgos Avraamu',
         avatar: '6.jpg',
-        registered: '2022/01/01',
-        role: 'Member',
+        تاریخ_انتشار: '2022/01/01',
         status: 'Active'
       },
       {
         id: 7,
-        name: 'Avram Tarasios',
+        عنوان_اگهی: 'Avram Tarasios',
         avatar: '7.jpg',
-        registered: '2022/02/07',
-        role: 'Staff',
+        تاریخ_انتشار: '2022/02/07',
         status: 'Banned',
         _selected: true,
       },
       {
         id: 8,
-        name: 'Quintin Ed',
+        عنوان_اگهی: 'Quintin Ed',
         avatar: '8.jpg',
-        registered: '2022/02/07',
-        role: 'Admin',
+        تاریخ_انتشار: '2022/02/07',
         status: 'Inactive'
       },
       { 
         id: 9,
-        name: 'Enéas Kwadwo',
+        عنوان_اگهی: 'Enéas Kwadwo',
         avatar: '9.jpg',
-        registered: '2022/03/19',
-        role: 'Member',
+        تاریخ_انتشار: '2022/03/19',
         status: 'Pending'
       },
       { 
         id: 10,
-        name: 'Agapetus Tadeáš',
+        عنوان_اگهی: 'Agapetus Tadeáš',
         avatar: '10.jpg',
-        registered: '2022/01/21',
-        role: 'Staff',
+        تاریخ_انتشار: '2022/01/21',
         status: 'Active'
       },
       { 
         id: 11,
-        name: 'Carwyn Fachtna',
+        عنوان_اگهی: 'Carwyn Fachtna',
         avatar: '11.jpg',
-        registered: '2022/01/01',
-        role: 'Member',
+        تاریخ_انتشار: '2022/01/01',
         status: 'Active'
       },
       {
         id: 12,
-        name: 'Nehemiah Tatius',
+        عنوان_اگهی: 'Nehemiah Tatius',
         avatar: '12.jpg',
-        registered: '2022/02/07',
-        role: 'Staff',
+        تاریخ_انتشار: '2022/02/07',
         status: 'Banned',
         _selected: true,
       },
       {
         id: 13,
-        name: 'Ebbe Gemariah',
+        عنوان_اگهی: 'Ebbe Gemariah',
         avatar: '13.jpg',
-        registered: '2022/02/07',
-        role: 'Admin',
+        تاریخ_انتشار: '2022/02/07',
         status: 'Inactive'
       },
       {
         id: 14,
-        name: 'Eustorgios Amulius',
+        عنوان_اگهی: 'Eustorgios Amulius',
         avatar: '14.jpg',
-        registered: '2022/03/19',
-        role: 'Member',
+        تاریخ_انتشار: '2022/03/19',
         status: 'Pending',
       },
       {
         id: 15,
-        name: 'Leopold Gáspár',
+        عنوان_اگهی: 'Leopold Gáspár',
         avatar: '15.jpg',
-        registered: '2022/01/21',
-        role: 'Staff',
+        تاریخ_انتشار: '2022/01/21',
         status: 'Active'
       },
     ]
@@ -184,7 +162,7 @@ const AdvertiseCategoryCO = () => {
     }
     return (
       <CSmartTable
-        activePage={2}
+        activePage={1}
         cleaner
         clickableRows
         columns={columns}
@@ -202,11 +180,7 @@ const AdvertiseCategoryCO = () => {
           console.log(items)
         }}
         scopedColumns={{
-          avatar: (item) => (
-            <td>
-              <CAvatar src={`/images/avatars/${item.avatar}`} />
-            </td>
-          ),
+      
           status: (item) => (
             <td>
               <CBadge color={getBadge(item.status)}>{item.status}</CBadge>
@@ -214,7 +188,7 @@ const AdvertiseCategoryCO = () => {
           ),
           show_details: (item) => {
             return (
-              <td className="py-2">
+              <td classعنوان_اگهی="py-2">
                 <CButton
                   color="primary"
                   variant="outline"
@@ -232,13 +206,13 @@ const AdvertiseCategoryCO = () => {
           details: (item) => {
             return (
               <CCollapse visible={details.includes(item.id)}>
-                <CCardBody className="p-3">
-                  <h4>{item.username}</h4>
-                  <p className="text-muted">User since: {item.registered}</p>
+                <CCardBody classعنوان_اگهی="p-3">
+                  <h4>{item.userعنوان_اگهی}</h4>
+                  <p classعنوان_اگهی="text-muted">User since: {item.تاریخ_انتشار}</p>
                   <CButton size="sm" color="info">
                     User Settings
                   </CButton>
-                  <CButton size="sm" color="danger" className="ml-1">
+                  <CButton size="sm" color="danger" classعنوان_اگهی="ml-1">
                     Delete
                   </CButton>
                 </CCardBody>
