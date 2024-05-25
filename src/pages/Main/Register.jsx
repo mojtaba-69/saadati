@@ -8,19 +8,16 @@ import {  useNavigate } from "react-router-dom";
 
 
 const Register = () => {
-const [username, setUsername] = useState(null);
 const [name, setName] = useState(null);
 const [password, setPassword] = useState(null);
+const [username, setUsername] = useState(null);
 const navigate = useNavigate();
 
 const schema = yup.object().shape({
-  username: yup.number().min(11).max(11).positive().required(),
+  username: yup.number().min(10).positive().required(),
   name: yup.string().min(4).required(),
   password: yup.string().min(6).max(15).required(),
-  confirmPassword: yup
-    .string()
-    .oneOf([yup.ref("password")])
-    .required(),
+  confirmPassword: yup.string().oneOf([yup.ref("password")]).required(),
 });
 
 const {
@@ -31,26 +28,26 @@ const {
 
 const upLoadUser = async () => {
   try {
-    const response = await fetch("https://farawin.iran.liara.run/api/user", {
-      "headers": {
-        "accept": " application/json",
+    await fetch("https://farawin.iran.liara.run/api/user", {
+      headers: {
+        "accept": "application/json",
+        "content-type":"application/json"
       },
-      'body': { username: username, name: name, password: password },
-      "method": "post",
-    });
+      'body': JSON.stringify({ username: username, name: name, password: password }),
+      method: "post",
+    }).then((res)=>res.json()).then((json)=>console.log(json));
   } catch {
     alert("error")
   }
 };
 
-const a =  useEffect(()=>{
+useEffect(()=>{
   upLoadUser();
   return console.log("a")
-},[])
+},[onFormSubmit])
 
 const onFormSubmit = (data) => {
-  navigate("/Login");
-  a();
+  upLoadUser();
   console.log(data);
 };
 
@@ -114,10 +111,10 @@ const onFormSubmit = (data) => {
                     class="form-control"
                     type="password"
                     placeholder="Repeat password"
-                    {...Register("confirmPassword")}
+                    {...register("confirmPassword")}
                   />
                 </div>
-                <button class="btn btn-block btn-success" type="button">
+                <button class="btn btn-block btn-success" type="submit">
                   Create Account
                 </button>
                       
