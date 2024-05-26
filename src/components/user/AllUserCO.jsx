@@ -2,7 +2,6 @@
 import { CTable } from "@coreui/react";
 import usersData from "../../data/UserData";
 import { getValue } from "@testing-library/user-event/dist/utils";
-import axios from "axios";
 import { useEffect, useState } from "react";
 const AllUserCO = () => {
 

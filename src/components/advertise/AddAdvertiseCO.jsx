@@ -8,8 +8,12 @@ import {
   CFormSelect,
   CButton,
 } from "@coreui/react";
-
+import { useState,useEffect } from "react";
 const AddAdvertiseCO = () => {
+  const[userName,setUserName]=useState(null);
+  const[name,setName]=useState(null);
+  // const[userName,setUserName]=useState(null);
+
   return (
     <div className="p-3">
 
@@ -18,15 +22,17 @@ const AddAdvertiseCO = () => {
         <CFormInput
           type="text"
           id="validationServer01"
-          label="عنوان"
+          label="نام کاربری"
           feedback="عنوان عالیه!"
           defaultValue=""
           valid
           required
+          onInput={(e)=>{setUserName(e.target.value)}}
         />
       </CCol>
       <CCol md={4}>
         <CFormInput
+          disabled
           type="text"
           id="validationServer02"
           label="کارفرما"

@@ -12,39 +12,61 @@ import {
   CFormLabel,
   CForm,
 } from "@coreui/react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { useDispatch } from "react-redux";
-import { setEmail, setName, setPhone, setUserName } from "../../redux/Store";
-import {  useSelector } from "react-redux";
+// import { useDispatch } from "react-redux";
+// import { setEmail, setName, setPhone, setUserName } from "../../redux/Store";
+// import {  useSelector } from "react-redux";
 //در اینجا مقادیر  فرم ولید میشود ک اگر اشتباه بقود به رنگ سبز در می ایند و اگر اشتباه بودند به رنگ قرمز در خواهند بود
 const AddUserCO = () => {
   const [validated, setValidated] = useState(true);
-  const [name, setname] = useState("");
-  const [userName, setUsername] = useState("");
-  const [email, setEmaill] = useState("");
-  const [phone, setPhonee] = useState(0);
-  const dispatch = useDispatch();
-  const s = useSelector((state)=> state.addUser)
+  const [name, setname] = useState(null);
+  const [userName, setUsername] = useState(null);
+  const [password, setPassword] = useState(null);
+
   const schema = yup.object().shape({
-    name: yup.string().required(),
-    username: yup.string().min(6).max(12).required(),
-    email: yup.string().email().required(),
-    phone: yup.number().min(10).max(10).required(),
+    name: yup.string().min(3).required(),
+    username: yup.number().min(10).positive().required(),
+    password: yup.string().min(8).required(),
   });
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm({ resolver: yupResolver(schema) });
+
+  const upLoadUser = async () => {
+    try {
+      await fetch("https://farawin.iran.liara.run/api/user", {
+        method: "post",
+        headers: {
+          accept: "application/json",
+          "content-type": "application/json",
+        },
+        body: JSON.stringify({
+          username: userName,
+          name: name,
+          password: password,
+        }),
+      })
+        .then((res) => res.json())
+        .then((json) => console.log(json));
+      if ("code" === 200) {
+        console.log("کاربر با موفقیت ثبت نام شد");
+      }
+    } catch {
+      alert("error");
+    }
+  };
+
+  useEffect(() => {
+    upLoadUser();
+    return console.log("a");
+  }, []);
   const onFormSubmit = (data) => {
-    dispatch(setName({ name: name }));
-    dispatch(setEmail({ email: email }));
-    dispatch(setUserName({ username: userName }));
-    dispatch(setPhone({ phone: phone }));
-    console.log(s)
+    upLoadUser();
     console.log(data);
   };
   return (
@@ -61,7 +83,7 @@ const AddUserCO = () => {
             type="text"
             feedbackValid="عالی!"
             id="validationCustom01"
-            label="نام و نام خانوادگی"
+            label="نام (باید 3 حرف بیشتر باشد)"
             required
             {...register("name")}
             onInput={(e) => setname(e.target.value)}
@@ -72,24 +94,26 @@ const AddUserCO = () => {
             type="password"
             feedbackValid="عالی!"
             id="validationCustom02"
-            label="پسورد"
+            label="پسورد (باید بیشتر از 8 کاراکتر باشد) "
             required
+            onInput={(e) => setPassword(e.target.value)}
             {...register("password")}
           />
         </CCol>
         <CCol md={4}>
-          <CFormLabel htmlFor="validationCustomUsername">نام کاربری</CFormLabel>
+          <CFormLabel htmlFor="validationCustomUsername">
+            نام کاربری (باید شماره تلفن باشد)
+          </CFormLabel>
           <CInputGroup className="has-validation">
-            <CInputGroupText>@</CInputGroupText>
             <CFormInput
-              type="text"
+              type="number"
               aria-describedby="inputGroupPrependFeedback"
               feedbackValid="یک نامکاربری برای خود انتخاب کنید."
               id="validationCustomUsername"
               required
               {...register("username")}
               onInput={(e) => {
-                setUsername("@", e.target.value);
+                setUsername(e.target.value);
               }}
             />
           </CInputGroup>
@@ -102,10 +126,10 @@ const AddUserCO = () => {
             id="validationCustom03"
             label="ایمل"
             required
-            {...register("email")}
-            onInput={(e) => {
-              setEmaill(e.target.value);
-            }}
+            disabled
+            // onInput={(e) => {
+            //   setEmaill(e.target.value);
+            // }}
           />
         </CCol>
         <CCol md={3}>
@@ -115,6 +139,7 @@ const AddUserCO = () => {
             id="validationCustom04"
             label="نقش"
             required
+            disabled
           >
             <option>کارفرما</option>
             <option>کارجو</option>
@@ -122,16 +147,16 @@ const AddUserCO = () => {
         </CCol>
         <CCol md={3}>
           <CFormInput
+            disabled
             type="number"
             aria-describedby="validationCustom05Feedback"
             feedbackInvalid="لطفا شماره تمارس را وارد کنید."
             id="validationCustom05"
             label="تلفن"
             required
-            {...register("numberphone")}
-            onInput={(e) => {
-              setPhonee(e.target.value);
-            }}
+            // onInput={(e) => {
+            // setPhonee(e.target.value);
+            // }}
           />
         </CCol>
         <CCol xs={12}>
@@ -140,6 +165,7 @@ const AddUserCO = () => {
             id="invalidCheck"
             label="تمام قوانین را قبول دارم."
             required
+            disabled
           />
           <CFormFeedback invalid>
             You must agree before submitting.
@@ -151,19 +177,7 @@ const AddUserCO = () => {
           </CButton>
         </CCol>
       </CForm>
-      {errors.email ||
-        errors.username ||
-        errors.password ||
-        errors.name ||
-        (errors.numberphone && (
-          <div>
-            <p>{errors.name.message}</p>
-            <p>{errors.username.message}</p>
-            <p>{errors.password.message}</p>
-            <p>{errors.email.message}</p>
-            <p> {errors.numberphone.message}</p>
-          </div>
-        ))}
+
     </div>
   );
 };

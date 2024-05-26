@@ -1,8 +1,8 @@
 import { CSmartTable } from "@coreui/react-pro";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { CAvatar, CBadge, CButton, CCollapse, CCardBody } from "@coreui/react";
 import avatarr from "../../assets/avatar/avatar.png";
-import usersData from "../../data/UserData";
+// import usersData from "../../data/UserData";
 
 const status = {
   active: "فعال",
@@ -13,6 +13,33 @@ const status = {
 
 const UserManagement = () => {
   const [details, setDetails] = useState([]);
+  const [userList,setUserList]=useState(null)
+
+  const loadUsers = async () =>{
+    try{
+      const response = await fetch("https://farawin.iran.liara.run/api/user");
+      const json = await response.json();
+      if(json.code === '200'){
+        const users = json.userList.map((user,index) => {
+          return {
+                id: index + 1,
+                name: user.name,
+                username: user.username,
+                register: new Date(user.date).toLocaleDateString("fa"),
+                role: "khali",
+                status: "active",
+                email:"khali",
+          }
+        });
+        setUserList(users);
+      }
+    }catch{
+      alert('error')
+    }
+  }
+  useEffect(()=>{
+    loadUsers();
+  },[])
   //اطلاعات مربو به هر ستون
   const columns = [
     {
@@ -22,12 +49,12 @@ const UserManagement = () => {
       sorter: false,
     },
     {
-      key: "نام",
+      key: "name",
       _style: { width: "20%" },
     },
-    "فعالسازی",
+    "register",
     {
-      key: "نقش",
+      key: "role",
       _style: { width: "20%" },
     },
     {
@@ -42,6 +69,7 @@ const UserManagement = () => {
       sorter: false,
     },
   ];
+  
   //وضعیت کاربران
   //فعال=>سبز
   //غیرفعال=>قرمز
@@ -80,7 +108,7 @@ const UserManagement = () => {
       columnFilter
       columnSorter
       footer
-      items={usersData}
+      items={userList}
       itemsPerPageSelect
       itemsPerPage={5}
       pagination
@@ -123,7 +151,7 @@ const UserManagement = () => {
             <CCollapse visible={details.includes(item.id)}>
               <CCardBody className="p-3">
                 <h4>{item.username}</h4>
-                <p className="text-muted">تاریخ ایجاد حساب : {item.فعالسازی}</p>
+                <p className="text-muted">تاریخ ایجاد حساب : {item.register}</p>
                 <CButton size="sm" color="info">
                   تنظیمات کاربر
                 </CButton>

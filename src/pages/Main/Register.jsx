@@ -44,7 +44,7 @@ const upLoadUser = async () => {
 useEffect(()=>{
   upLoadUser();
   return console.log("a")
-},[onFormSubmit])
+},[])
 
 const onFormSubmit = (data) => {
   upLoadUser();
