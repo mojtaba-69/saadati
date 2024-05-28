@@ -1,8 +1,8 @@
 //در صفحه ما اطلاعات را از مدیر سایت میگیریم و اون ها رو بررسی و ولید میکنم و در این صحه از redux , yup ,hook form  استفاده کردم
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { login } from "../../redux/Store";
 import { useDispatch } from "react-redux";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -12,6 +12,7 @@ import a from '../../assets/pic/teahub.io-blur-wallpaper-80602.jpg'
 
 function Login() {
   const [newUsername, setNewUsername] = useState("");
+  const [newPassword, setNewPassword] = useState("");
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const schema = yup.object().shape({
@@ -23,9 +24,28 @@ function Login() {
     handleSubmit,
     formState: { errors },
   } = useForm({ resolver: yupResolver(schema) });
-
+  
+  const loginUp = ()=>{
+    try{
+    fetch("https://farawin.iran.liara.run/api/user/login",{
+      method:'POST',
+      headers:{
+        "accept":"application/json",
+        "content-type":"application/json",
+        "authorization":"JTdCJTIydXNlcm5hbWUlMjIlM0ElMjIwOTAwMDAwMDAwMCUyMiUyQyUyMnBhc3N3b3JkJTIyJTNBJTIyMTIzNDU2NzhBYSU0MCUyMiUyQyUyMm5hbWUlMjIlM0ElMjIlRDklODElRDglQjElRDglQTclRDklODglREIlOEMlRDklODYlMjIlMkMlMjJkYXRlJTIyJTNBJTIyMjAyMy0xMC0yNVQwNCUzQTIyJTNBNTYuODMzWiUyMiU3RA=="
+      },
+      body:JSON.stringify({username:newUsername,password:newPassword})
+    }).then((res)=>res.json()).then((res)=>console.log(res))
+  }catch{
+    console.log('error')
+  }
+  }
+// useEffect(()=>{
+//   loginUp()
+// },[])
   const onFormSubmit = (data) => {
     dispatch(login({ username: newUsername }));
+    loginUp()
     alert("خوش امدید");
     navigate("/Dashboard");
     console.log(data);
@@ -69,6 +89,7 @@ function Login() {
                           type="password"
                           placeholder="رمز ورود"
                           {...register("password")}
+                          onChange={(e)=> setNewPassword(e.target.value)}
                         />
                       </div>
                       <div class="row">

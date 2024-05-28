@@ -26,9 +26,9 @@ const {
   formState: { errors },
 } = useForm({ resolver: yupResolver(schema) });
 
-const upLoadUser = async () => {
+const upLoadUser = () => {
   try {
-    await fetch("https://farawin.iran.liara.run/api/user", {
+    fetch("https://farawin.iran.liara.run/api/user", {
       headers: {
         "accept": "application/json",
         "content-type":"application/json"
@@ -43,6 +43,7 @@ const upLoadUser = async () => {
 
 useEffect(()=>{
   upLoadUser();
+
   return console.log("a")
 },[])
 
