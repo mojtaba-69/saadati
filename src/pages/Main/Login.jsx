@@ -25,9 +25,9 @@ function Login() {
     formState: { errors },
   } = useForm({ resolver: yupResolver(schema) });
   
-  const loginUp = ()=>{
+  const loginUp = async()=>{
     try{
-    fetch("https://farawin.iran.liara.run/api/user/login",{
+    const response = await fetch("https://farawin.iran.liara.run/api/user/login",{
       method:'POST',
       headers:{
         "accept":"application/json",
@@ -35,7 +35,11 @@ function Login() {
         "authorization":"JTdCJTIydXNlcm5hbWUlMjIlM0ElMjIwOTAwMDAwMDAwMCUyMiUyQyUyMnBhc3N3b3JkJTIyJTNBJTIyMTIzNDU2NzhBYSU0MCUyMiUyQyUyMm5hbWUlMjIlM0ElMjIlRDklODElRDglQjElRDglQTclRDklODglREIlOEMlRDklODYlMjIlMkMlMjJkYXRlJTIyJTNBJTIyMjAyMy0xMC0yNVQwNCUzQTIyJTNBNTYuODMzWiUyMiU3RA=="
       },
       body:JSON.stringify({username:newUsername,password:newPassword})
-    }).then((res)=>res.json()).then((res)=>console.log(res))
+    });
+
+    const data = await response.json()
+
+    console.log(response)
   }catch{
     console.log('error')
   }
@@ -44,9 +48,9 @@ function Login() {
 //   loginUp()
 // },[])
   const onFormSubmit = (data) => {
-    dispatch(login({ username: newUsername }));
+    // dispatch(login({ username: newUsername }));
     loginUp()
-    alert("خوش امدید");
+    // alert("خوش امدید");
     navigate("/Dashboard");
     console.log(data);
   };
