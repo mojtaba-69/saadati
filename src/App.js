@@ -16,6 +16,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import {Provider} from 'react-redux'
 import { store } from "./redux/Store";
 export default function App() {
+ 
   return (
     <Provider store={store}>
     <BrowserRouter>
@@ -32,7 +33,6 @@ export default function App() {
           <Route path="AddAdvertise" element={<AddAdvertise />} />
           <Route path="AllAdvertise" element={<AllAdvertise />} />
           <Route path="AdvertiseCategory" element={<AdvertiseCategory />} />
-
           <Route path="*" element={<NoPage />} />
         </Route>
       </Routes>

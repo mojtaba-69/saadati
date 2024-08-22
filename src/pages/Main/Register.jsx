@@ -1,60 +1,72 @@
+
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { useEffect, useState } from "react";
-import {  useNavigate } from "react-router-dom";
-
-
-
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Register = () => {
-const [name, setName] = useState(null);
-const [password, setPassword] = useState(null);
-const [username, setUsername] = useState(null);
-const navigate = useNavigate();
+  const [lastName, setLastName] = useState();
+  const [fristName, setFristName] = useState();
+  const [age, setAge] = useState();
+  const [password, setPassword] = useState();
+  const [email, setEmail] = useState();
+  const navigate = useNavigate();
 
-const schema = yup.object().shape({
-  username: yup.number().min(10).positive().required(),
-  name: yup.string().min(4).required(),
-  password: yup.string().min(6).max(15).required(),
-  confirmPassword: yup.string().oneOf([yup.ref("password")]).required(),
-});
+  const schema = yup.object().shape({
+    email: yup.string().required(),
+    lastname: yup.string().required(),
+    fristname: yup.string().required(),
+    password: yup.string().required(),
+   
+  });
 
-const {
-  register,
-  handleSubmit,
-  formState: { errors },
-} = useForm({ resolver: yupResolver(schema) });
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({ resolver: yupResolver(schema) });
 
-const upLoadUser = async () => {
-  try {
-    await fetch("https://farawin.iran.liara.run/api/user", {
-      headers: {
-        "accept": "application/json",
-        "content-type":"application/json"
-      },
-      'body': JSON.stringify({ username: username, name: name, password: password }),
-      method: "post",
-    }).then((res)=>res.json()).then((json)=>console.log(json));
-  } catch {
-    alert("error")
-  }
-};
+  const sign = async (event) => {
 
-useEffect(()=>{
-  upLoadUser();
-  return console.log("a")
-},[])
+    try {
+      const response = await fetch("http://localhost:3000/auth/register", {
+        method: "POST",
+        headers: {
+          accept: "application/json",
+          "content-type": "application/json",
+        },
+        body: JSON.stringify({
+          email: email,
+          password: password,
+          frist_name: fristName,
+          last_name: lastName,
+          age: +age,
+        }),
+      });
+      console.log("email:", email);
+      console.log("frist name:", fristName);
+      console.log("last name:", lastName);
+      console.log("age:", age);
+      console.log("pass:", password);
 
-const onFormSubmit = (data) => {
-  upLoadUser();
-  console.log(data);
-};
+      const data = await response.json();
+      if(data.statusCode === 200 ){
+        navigate('/')
+        console.log('seccss')
+      }
+      console.log("date", data);
+      console.log("res", response);
+    } catch {
+      console.log("error");
+    }
+  };
 
-
-
-
-
+  const onFormSubmit = (data) => {
+    sign();
+    console.log(data);
+   
+  };
 
   return (
     <div class="bg-light min-vh-100 d-flex w-100 flex-row align-items-center">
@@ -63,65 +75,88 @@ const onFormSubmit = (data) => {
           <div class="col-md-6">
             <div class="card mb-4 mx-4">
               <form onSubmit={handleSubmit(onFormSubmit)}>
+                <div class="card-body p-4">
+                  <h1>فرم ثبت نام</h1>
+                  <p class="text-medium-emphasis">حساب کاربری خود را بسازید</p>
+                  <div class="input-group mb-3">
+                    <span class="input-group-text">
+                      <svg class="icon"></svg>
+                    </span>
+                    <input
+                      onInput={(e) => setEmail(e.target.value)}
+                      class="form-control"
+                      type="text"
+                      placeholder="ایمیل"
+                      {...register("email")}
+                    />
+                  </div>
+                  <div class="input-group mb-3">
+                    <span class="input-group-text">
+                      <svg class="icon"></svg>
+                    </span>
+                    <input
+                      onInput={(e) => setFristName(e.target.value)}
+                      class="form-control"
+                      type="text"
+                      placeholder="نام"
+                      {...register("fristname")}
+                    />
+                  </div>
+                  <div class="input-group mb-3">
+                    <span class="input-group-text">
+                      <svg class="icon"></svg>
+                    </span>
+                    <input
+                      onInput={(e) => setLastName(e.target.value)}
+                      class="form-control"
+                      type="text"
+                      placeholder="نام خانوادگی"
+                      {...register("lastname")}
+                    />
+                  </div>
+                  <div class="input-group mb-3">
+                    <span class="input-group-text">
+                      <svg class="icon"></svg>
+                    </span>
+                    <input
+                      onInput={(e) => setAge(e.target.value)}
+                      class="form-control"
+                      placeholder="سن"
+                      {...register("age")}
+                    />
+                  </div>
+                  <div class="input-group mb-3">
+                    <span class="input-group-text">
+                      <svg class="icon"></svg>
+                    </span>
+                    <input
+                      onInput={(e) => setPassword(e.target.value)}
+                      class="form-control"
+                      type="password"
+                      placeholder="رمز ورود"
+                      {...register("password")}
+                    />
+                  </div>
+                  <div class="input-group mb-4">
+                    <span class="input-group-text">
+                      <svg class="icon"></svg>
+                    </span>
+                    <input
+                      class="form-control"
+                      type="password"
+                      placeholder="تکرار رمز ورود"
+                      {...register("confirmPassword")}
+                    />
+                  </div>
+                  <button class="btn btn-block btn-success" type="submit">
+                    ایجاد حساب کاربری
+                  </button>
 
-              <div class="card-body p-4">
-                <h1>Register</h1>
-                <p class="text-medium-emphasis">Create your account</p>
-                <div class="input-group mb-3">
-                  <span class="input-group-text">
-                    <svg class="icon"></svg>
-                  </span>
-                  <input
-                    onInput={(e) => setUsername(e.target.value)}
-                    class="form-control"
-                    type="text"
-                    placeholder="Username"
-                    {...register("username")}
-                  />
+                  {errors.email && <p>{errors.email.message}</p>} 
+                  {errors.lastName && <p>{errors.lastName.message}</p>}
+                  {errors.fristName && <p>{errors.fristName.message}</p>}
+                  {errors.password && <p>{errors.password.message}</p>}
                 </div>
-                <div class="input-group mb-3">
-                  <span class="input-group-text">
-                    <svg class="icon"></svg>
-                  </span>
-                  <input
-                  onInput={(e) => setName(e.target.value)}
-                    class="form-control"
-                    type="text"
-                    placeholder="Name"
-                    {...register("name")}
-                  />
-                </div>
-                <div class="input-group mb-3">
-                  <span class="input-group-text">
-                    <svg class="icon"></svg>
-                  </span>
-                  <input
-                    onInput={(e) => setPassword(e.target.value)}
-                    class="form-control"
-                    type="password"
-                    placeholder="Password"
-                    {...register("password")}
-                  />
-                </div>
-                <div class="input-group mb-4">
-                  <span class="input-group-text">
-                    <svg class="icon"></svg>
-                  </span>
-                  <input
-                    class="form-control"
-                    type="password"
-                    placeholder="Repeat password"
-                    {...register("confirmPassword")}
-                  />
-                </div>
-                <button class="btn btn-block btn-success" type="submit">
-                  Create Account
-                </button>
-                      
-                      {errors.username && <p>{errors.username.message}</p>}
-                      {errors.name && <p>{errors.name.message}</p>}
-                      {errors.password && <p>{errors.password.message}</p>}
-              </div>
               </form>
             </div>
           </div>
